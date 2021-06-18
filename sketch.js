@@ -104,7 +104,7 @@ function mouseMoved() {
 
 function mouseClicked() {
   //button events (mostly changing current mode)
-  if(buttons[0].on) loadTable('/assets/'+input.value()+'.csv','csv','header', loadPreset);
+  if(buttons[0].on) loadTable('assets/'+input.value()+'.csv','csv','header', loadPreset);
   else if(buttons[1].on) savePreset();
   else if(buttons[2].on) currentMode = "strum";
   else if(buttons[3].on) currentMode = "move";
