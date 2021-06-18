@@ -1,5 +1,7 @@
 # guiTARcode
 
+Launched to https://katlopz.github.io/guiTARcode/  
+Made with p5.js  
 Instructions for guiTARcode: 
 
 ### load it! 
