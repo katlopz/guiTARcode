@@ -100,6 +100,37 @@ function mouseMoved() {
       }
     }
   }
+  
+  //strum if mouse (prevX, prevY) (mouseX, mouseY) intersects with bar line (x, y)(x, y+height)
+  if(currentMode == "strum") {
+    for(var i = 0; i<bars.length; i++) {
+      var x1 = prevX;
+      var y1 = prevY;
+      var x2 = mouseX;
+      var y2 = mouseY;
+      
+      var x3 = bars[i].x; 
+      var y3 = bars[i].y;
+      var x4 = bars[i].x;
+      var y4 = bars[i].x+bars[i].height;
+      
+      var denominator = ((x1-x2)*(y3-y4)) - ((y1-y2)*(x3-x4));
+      var x = ( (((x1*y2)-(y1*x2))*(x3-x4)) - ((x1-x2)*((x3*x4)-(y3*x4))) ) / denominator; //within width of mouse movement
+      var y = ( (((x1*y2)-(y1*x2))*(y3-y4)) - ((y1-y2)*((x3*y4)-(y3*x4))) ) / denominator; //within height of bar
+      
+      var xCheck = false;
+      var yCheck = (y >= y3 && y <= y4);
+      if(x1 < x2) { //prevX less than mouseX
+        xCheck = (x >= x1 && x <= x2);
+      }
+      else { //mouseX less than prev
+        xCheck = (x >= x2 && x <= x1);
+      }
+      
+      if(xCheck && yCheck) bars[i].play();
+    }
+  }
+
 }
 
 function mouseClicked() {
