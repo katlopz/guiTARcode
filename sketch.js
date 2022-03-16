@@ -92,6 +92,7 @@ function draw() {
 }
 
 function mouseMoved() {
+  /*
   //strum when mouse over bar
   if(currentMode == "strum") {
     for(var i = 0; i<bars.length; i++) {
@@ -100,6 +101,7 @@ function mouseMoved() {
       }
     }
   }
+  */
   
   //strum if mouse (prevX, prevY) (mouseX, mouseY) intersects with bar line (x, y)(x, y+height)
   if(currentMode == "strum") {
@@ -112,7 +114,7 @@ function mouseMoved() {
       var x3 = bars[i].x; 
       var y3 = bars[i].y;
       var x4 = bars[i].x;
-      var y4 = bars[i].x+bars[i].height;
+      var y4 = bars[i].y+bars[i].height;
       
       var denominator = ((x1-x2)*(y3-y4)) - ((y1-y2)*(x3-x4));
       var x = ( (((x1*y2)-(y1*x2))*(x3-x4)) - ((x1-x2)*((x3*y4)-(y3*x4))) ) / denominator; //within width of mouse movement
@@ -128,15 +130,6 @@ function mouseMoved() {
       }
       
       if(xCheck && yCheck) bars[i].play();
-      
-      console.log("prev: " + x1 + ", " + y1);
-      console.log("mouse: " + x2 + ", " + y2);
-      console.log("bar-top: " + x3 + ", " + y3);
-      console.log("bar-bottom: " + x4 + ", " + y4);
-      
-      console.log("intersect: " + x + ", " + y);
-      console.log("xCheck: " + xCheck);
-      console.log("yCheck: " + yCheck);
     }
   }
 
