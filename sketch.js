@@ -128,6 +128,15 @@ function mouseMoved() {
       }
       
       if(xCheck && yCheck) bars[i].play();
+      
+      console.log("prev: " + x1 + ", " + y1);
+      console.log("mouse: " + x2 + ", " + y2);
+      console.log("bar-top: " + x3 + ", " + y3);
+      console.log("bar-bottom: " + x4 + ", " + y4);
+      
+      console.log("intersect: " + x + ", " + y);
+      console.log("xCheck: " + xCheck);
+      console.log("yCheck: " + yCheck);
     }
   }
 
