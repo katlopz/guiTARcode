@@ -10,7 +10,11 @@ var currentBarIdx = -1;
 var prevX;
 var prevY;
 
+let audioStarted = false;
+
 function setup() {
+  getAudioContext().suspend();
+  
   createCanvas(windowWidth, windowHeight);
 
   //initialise with random bars
@@ -92,6 +96,12 @@ function draw() {
 }
 
 function mouseMoved() {
+  // Start audio on user gesture
+  if (!audioStarted) {
+     userStartAudio();
+     audioStarted = true;
+  }
+  
   /*
   //strum when mouse over bar
   if(currentMode == "strum") {
